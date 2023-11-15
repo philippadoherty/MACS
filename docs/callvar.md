@@ -158,6 +158,7 @@ control data:
 ```math
 $$L(\omega,\phi,g\_c,g\_i:D)=L(\omega,g\_c:D\_c)L(\phi,g\_i:D\_i)$$
 ```
+$$L(\omega,\phi,g\_c,g\_i:D)=L(\omega,g\_c:D\_c)L(\phi,g\_i:D\_i)$$
 ```math
 $$L(\omega,\phi,g_c,g_i:D)=L(\omega,g_c:D_c)L(\phi,g_i:D_i)$$
 ```
