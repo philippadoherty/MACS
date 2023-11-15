@@ -1,4 +1,6 @@
 theme: jekyll-theme-slate
+plugins:
+  - jekyll-mathjax
 mathjax:
   enable: true
   combine: false
