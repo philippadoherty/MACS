@@ -167,13 +167,13 @@ THis is a test for an \(A+B=C\) inline eq or test this one \\(A+B=C\\).
 Here is a display equation:
 \[A+B=C\]
 \\[ A+B=C \\]
-$$ A+B=C$$
+$$A+B=C$$
 where $$D_c$$ and \(D_i\) represent the ChIP-Seq and control (e.g.,
 genomic input) data observed at the position including base coverage
 and base qualities. The parameter $\omega$ stands for the allele ratio
 of allele A (chosen as the more abundant or stronger allele compared
 with the others) from the ChIP-Seq data and $\phi$ represents the
-allele ratio in the control. The parameter $`g_c`$ represents the
+allele ratio in the control. The parameter $g_c$ represents the
 actual number of ChIPed DNA fragments containing allele A, which could
 differ from the observed count $`r_{c,A}`$ considering that some
 observations could be due to sequencing errors. The symbol $`g_i`$
