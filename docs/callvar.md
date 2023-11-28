@@ -156,8 +156,6 @@ function was the product of the likelihood functions of ChIP and
 control data:
 
 
-$$L(\omega,\phi,g\_c,g\_i:D)=L(\omega,g\_c:D\_c)L(\phi,g\_i:D\_i)$$
-
 $$L(\omega,\phi,g_c,g_i:D)=L(\omega,g_c:D_c)L(\phi,g_i:D_i)$$
 
 where $D_c$ and $D_i$ represent the ChIP-Seq and control (e.g.,
@@ -176,9 +174,7 @@ is from a Bernoulli trial from $r_c$ with the allele ratio
 $\omega$. The probability of observing the ChIP-Seq data at a certain
 position under a given type is as follows:
 
-$$Pr(D_c|g_c,\omega) = Pr(D_c|g_c) =
- \sum^{r_{c,A}}_{j=1}\left((1-\epsilon_j)g_c/r_c+\epsilon_j(1-g_c/r_c)\right)\sum_{j=1}^{r_{c,B}}\left((1-\epsilon_j)(1-g_c/r_c)+\epsilon_j
- g_c/r_c\right)$$
+$$Pr(D_c|g_c,\omega)=Pr(D_c|g_c)=\sum^{r_{c,A}}_{j=1}\left((1-\epsilon_j)g_c/r_c+\epsilon_j(1-g_c/r_c)\right)\sum_{j=1}^{r_{c,B}}\left((1-\epsilon_j)(1-g_c/r_c)+\epsilon_j g_c/r_c\right)$$
 
 where $\epsilon_j$ represents the sequencing error of the base
 showing difference with reference genome in case of mismatch
