@@ -167,6 +167,7 @@ THis is a test for an \(A+B=C\) inline eq or test this one \\(A+B=C\\).
 Here is a display equation:
 \[A+B=C\]
 \\[ A+B=C \\]
+$$ A+B=C$$
 where $$D_c$$ and \(D_i\) represent the ChIP-Seq and control (e.g.,
 genomic input) data observed at the position including base coverage
 and base qualities. The parameter $\omega$ stands for the allele ratio
