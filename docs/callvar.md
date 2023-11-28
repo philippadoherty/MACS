@@ -28,17 +28,17 @@ files.
 Example:
 
 1. Sort the BAM file:
-    `$ samtools sort TREAT.bam -o TREAT_sorted.bam`
-    `$ samtools sort CTRL.bam -o CTRL_sorted.bam`
+    $ samtools sort TREAT.bam -o TREAT_sorted.bam`
+    $ samtools sort CTRL.bam -o CTRL_sorted.bam`
 2. Index the BAM file:
-    `$ samtools index TREAT_sorted.bam`
-    `$ samtools index CTRL_sorted.bam`
+    $ samtools index TREAT_sorted.bam`
+    $ samtools index CTRL_sorted.bam`
 3. Make sure .bai files are available:
-    `$ ls TREAT_sorted.bam.bai`
-    `$ ls CTRL_sorted.bam.bai`
+    $ ls TREAT_sorted.bam.bai`
+    $ ls CTRL_sorted.bam.bai`
 
 To call variants:
-    `$ macs3 callvar -b peaks.bed -t TREAT_sorted.bam -c CTRL_sorted.bam -o peaks.vcf`
+    $ macs3 callvar -b peaks.bed -t TREAT_sorted.bam -c CTRL_sorted.bam -o peaks.vcf`
 
 ## Command Line Options
 
@@ -155,52 +155,44 @@ ChIP and control experiments so that the generalized likelihood
 function was the product of the likelihood functions of ChIP and
 control data:
 
-```math
+
 $$L(\omega,\phi,g\_c,g\_i:D)=L(\omega,g\_c:D\_c)L(\phi,g\_i:D\_i)$$
-```
-$$L(\omega,\phi,g\_c,g\_i:D)=L(\omega,g\_c:D\_c)L(\phi,g\_i:D\_i)$$
-```math
+
 $$L(\omega,\phi,g_c,g_i:D)=L(\omega,g_c:D_c)L(\phi,g_i:D_i)$$
-```
-$$L(\omega,\phi,g_c,g_i:D)=L(\omega,g_c:D_c)L(\phi,g_i:D_i)$$
-THis is a test for an \(A+B=C\) inline eq or test this one \\(A+B=C\\).
-Here is a display equation:
-\[A+B=C\]
-\\[ A+B=C \\]
-$$A+B=C$$
-where $$D_c$$ and \(D_i\) represent the ChIP-Seq and control (e.g.,
+
+where $D_c$ and $D_i$ represent the ChIP-Seq and control (e.g.,
 genomic input) data observed at the position including base coverage
 and base qualities. The parameter $\omega$ stands for the allele ratio
 of allele A (chosen as the more abundant or stronger allele compared
 with the others) from the ChIP-Seq data and $\phi$ represents the
 allele ratio in the control. The parameter $g_c$ represents the
 actual number of ChIPed DNA fragments containing allele A, which could
-differ from the observed count $`r_{c,A}`$ considering that some
-observations could be due to sequencing errors. The symbol $`g_i`$
-represents the control analogously to $`g_c`$. We used $`r_c`$ to
-denote the total number of observed allele A ($`r_{c,A}`$) and allele
-B ($`r_{c,B}`$). We assumed the occurrence of the allele A ($`g_c`$)
-is from a Bernoulli trial from $`r_c`$ with the allele ratio
+differ from the observed count $r_{c,A}$ considering that some
+observations could be due to sequencing errors. The symbol $g_i$
+represents the control analogously to $g_c$. We used $r_c$ to
+denote the total number of observed allele A ($r_{c,A}$) and allele
+B ($r_{c,B}$). We assumed the occurrence of the allele A ($g_c$)
+is from a Bernoulli trial from $r_c$ with the allele ratio
 $\omega$. The probability of observing the ChIP-Seq data at a certain
 position under a given type is as follows:
 
-```math
+$$
 Pr(D_c|g_c,\omega) = Pr(D_c|g_c) =
  \sum^{r_{c,A}}_{j=1}\left((1-\epsilon_j)g_c/r_c+\epsilon_j(1-g_c/r_c)\right)\sum_{j=1}^{r_{c,B}}\left((1-\epsilon_j)(1-g_c/r_c)+\epsilon_j
  g_c/r_c\right)
- ```
+$$
 
-where $`\epsilon_j`$ represents the sequencing error of the base
+where $\epsilon_j$ represents the sequencing error of the base
 showing difference with reference genome in case of mismatch
 (corresponding to SNV) and insertion. In case of deletion, the
 sequencing errors from the two bases on sequenced read surrounding the
 deletion would be considered. We modeled the control data in the
 similar way. We assessed the likelihood functions of the 4 major type
 using the following parameters:
-$`\omega=1,\phi=1,g_c=r_{c,0},g_i=r_{i,0}`$ for A/A genotype;
-$`\omega=0,\phi=0,g_c=0,g_i=0`$ for B/B genotype,
-$`\omega=0.5,\phi=0.5`$ and $`g_c,g_i`$ as free variables for A/B
-genotype with unbiased binding; $`\phi=0.5`$ and $`\omega,g_c,g_i`$ as
+$\omega=1,\phi=1,g_c=r_{c,0},g_i=r_{i,0}$ for A/A genotype;
+$\omega=0,\phi=0,g_c=0,g_i=0$ for B/B genotype,
+$\omega=0.5,\phi=0.5$ and $g_c,g_i$ as free variables for A/B
+genotype with unbiased binding; $\phi=0.5$ and $\omega,g_c,g_i$ as
 free variables for A/B genotype with biased binding or allele
 usage. Next, we applied the Bayesian Information Criterion (BIC) to
 select the best type as our prediction with the minimal BIC value
